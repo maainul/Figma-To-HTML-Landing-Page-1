@@ -1,14 +1,596 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Raleway:wght@300;900&display=swap');
-*{
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-:root{
-    --orange-color:#DA722C;
-    --dark-blue-color:#023047;
-    --dark-color:#070917;
-    --light-color:#057ADA;
-    --light-blue-color:#6F7DFB;
+:root {
+    --orange-color: #DA722C;
+    --dark-blue-color: #023047;
+    --dark-color: #070917;
+    --light-color: #057ADA;
+    --light-blue-color: #6F7DFB;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+ul {
+    margin: 0;
+}
+
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.wrapper {
+    max-width: 1134px;
+    margin: 0 auto;
+}
+
+.btn {
+    padding: 16px 32px;
+    border-radius: 24px;
+    color: #FFF;
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+}
+
+.btn.dark {
+    background-color: var(--dark-blue-color);
+}
+
+
+.btn.light {
+    background-color: var(--orange-color);
+}
+
+.btn.enrol-icon::before {
+    content: url('images/buttonIcon.svg');
+    position: absolute;
+    top: 50%;
+    left: 32px;
+    transform: translateY(-50%);
+}
+
+.btn.enrol-icon {
+    padding-left: 60px;
+}
+
+/* ************************ HEADER ************************** */
+header {
+    height: 768px;
+    width: 100%;
+    background: linear-gradient(180deg, #6f7dfb, #26308c 100%);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 1134px;
+    top: 0;
+    padding: 36px 0;
+    z-index: 1;
+    transition: all 0.5s ease;
+}
+
+nav.scrolled {
+    background-color: var(--dark-blue-color);
+    box-shadow: 0 16px 14px -8x rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 8px 8px;
+    top: 0;
+    padding: 10px;
+}
+
+nav .logo {
+    color: #FFF;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-size: 40px;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+nav ul li a {
+    color: #FFF;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+}
+
+/********************* hero-section ****************/
+.hero-section {
+    height: 768px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 60px;
+}
+
+.hero-section .left h1 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-size: 50px;
+    line-height: 125%;
+    color: #FFF;
+    margin-bottom: 30px;
+}
+
+.hero-section .left P {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 200%;
+    color: #FFF;
+    margin-bottom: 30px;
+    width: 457px;
+}
+
+.hero-section .left {
+    flex: 1;
+}
+
+.hero-section .right {
+    align-self: flex-end;
+}
+
+.hero-section .right img {
+    height: 582px;
+    vertical-align: middle;
+}
+
+/* Achievement Cards */
+
+.achievement-card {
+    position: absolute;
+}
+
+.achievement-card .content {
+    background-color: #FFF;
+    border-radius: 24px;
+    padding: 8px 32px;
+    z-index: 10;
+    position: relative;
+}
+
+.achievement-card.students-enrolled {
+    left: 49%;
+    top: 270px;
+}
+
+.achievement-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 36px;
+    text-align: center;
+    color: var(--dark-blue-color);
+    width: 100%;
+
+}
+
+.achievement-card p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    text-align: center;
+    color: var(--dark-blue-color);
+    margin-top: -8px;
+    margin-bottom: 8px;
+}
+
+.achievement-card .bg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(180deg, #6f7dfb 0%, #3b448f 100%);
+    border-radius: 24px;
+    top: 8px;
+    left: 8px;
+    z-index: 1;
+}
+
+.achievement-card.overall-ratings {
+    left: 45%;
+    top: 520px;
+}
+
+.achievement-card .content div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+}
+
+/* testimonials-section */
+
+.testimonials-section {
+    margin-top: 100px;
+    display: flex;
+    gap: 100px;
+    align-items: center;
+}
+
+.testimonials-section .mobile-btn {
+    display: none;
+}
+
+h2 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 900;
+    font-size: 60px;
+    color: var(--dark-blue-color);
+    margin: 0;
+
+}
+
+h2.light {
+    color: #fff;
+}
+
+section p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 200%;
+    color: var(--dark-blue-color);
+    margin: 12px 0;
+}
+
+.testimonials-section .left {
+    position: relative;
+}
+
+.testimonials-section .testimonial-card {
+    width: 442px;
+    background-color: #FFF;
+    border-radius: 24px;
+    box-shadow: 0 9px 36px rgba(0, 0, 0, 0.2);
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.testimonials-section .testimonial-card::before {
+    left: 60px;
+    top: -40px;
+    width: 28px;
+    content: "";
+    height: 40px;
+    position: absolute;
+    border-radius: 24px 24px 0 0;
+    background-color: var(--dark-blue-color);
+}
+
+.testimonials-section .testimonial-card:last-child::before {
+    left: 40px;
+    top: -50px;
+    border-radius: 0 0 24px 24px;
+    height: 140%;
+    z-index: -1;
+}
+
+.testimonials-section .testimonial-card .content {
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 150%;
+    color: #fff;
+    padding: 24px 32px;
+    background-color: var(--light-blue-color);
+    border-radius: 24px;
+}
+
+.testimonials-section .testimonial-card:last-child .content {
+    background-color: var(--orange-color);
+}
+
+.testimonials-section .testimonial-card .info {
+    padding: 24px 32px;
+    background: #fff;
+}
+
+.testimonials-section .testimonial-card .info h4 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 120%;
+    color: var(--dark-blue-color);
+    margin: 0;
+}
+
+.testimonials-section .testimonial-card .info p.company {
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    line-height: 120%;
+    color: var(--dark-blue-color);
+}
+
+.testimonials-section .testimonial-card img {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    right: 32px;
+    bottom: 20px;
+}
+
+.testimonials-section .testimonial-card:last-child {
+    transform: translateX(20px);
+}
+
+/* Features */
+.features {
+    margin-bottom: 30px;
+}
+
+/********************************
+        Courses Section
+*********************************/
+.courses-section {
+    background: linear-gradient(180deg, #6f7dfb 0%, #26308c 100%);
+    padding: 70px 0;
+    padding-bottom: 200px;
+}
+
+.courses-section h2 {
+    text-align: center;
+}
+
+.course-cards {
+    display: flex;
+    gap: 70px;
+
+}
+
+.course-cards img {
+    width: 100%;
+    filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.25));
+    border-radius: 24px;
+
+}
+
+.course-card {
+    padding: 0 32px;
+    border-radius: 24px;
+    background-color: #fff;
+    margin-top: 40px 0;
+    position: relative;
+}
+
+.course-card::after {
+    content: "";
+    height: 8px;
+    left: 32px;
+    right: 32px;
+    bottom: 0;
+    background-color: var(--dark-blue-color);
+    border-radius: 24px;
+    position: absolute;
+}
+
+.courses-section .course-card h3 {
+    font-family: "Raleway", sans-serif;
+    font-weight: 900;
+    font-size: 30px;
+    line-height: 150%;
+    color: var(--dark-blue-color);
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.duration {
+    font-family: "Raleway", sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--dark-blue-color);
+    position: relative;
+}
+
+.duration::before {
+    content: url('images/clock.svg');
+    position: absolute;
+    top: 2px;
+    left: -26px;
+}
+
+.courses-section .wrapper {
+    position: relative;
+}
+
+.courses-section .wrapper .btn {
+    position: absolute;
+    right: 0;
+    margin-top: 40px;
+}
+
+.wrapper .light {
+    margin-bottom: 56px;
+}
+
+/* APP */
+.app {
+    padding: 120px 0;
+}
+
+
+
+.app h2,
+.app p {
+    text-align: center;
+}
+
+
+.app-buttons,
+.app-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-btn {
+    background-color: var(--dark-color);
+    color: #fff;
+    margin-right: 20px;
+    padding: 8px 20px;
+    margin-top: 20px;
+}
+
+.app-btn img {
+    margin-right: 10px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-color);
+    width: 100%;
+    color: var(--orange-color);
+}
+
+footer .wrapper {
+    padding-top: 40px;
+}
+
+
+footer a {
+    color: #fff;
+
+}
+
+.links-container {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    padding: 30px 0;
+}
+
+footer .wrapper p {
+    padding-bottom: 30px;
+}
+
+.links {
+    flex-grow: 1;
+}
+
+.links ul li {
+    padding-bottom: 14px;
+    margin-left: 20px;
+}
+
+.links h3 {
+    padding-bottom: 20px;
+}
+
+.social {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 20px;
+    margin-left: 20px;
+}
+
+form {
+    display: flex;
+}
+
+form input {
+    height: 30px;
+    padding: 20px 30px;
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+form button {
+    height: 35px;
+    margin-top: 2.5px;
+    padding: 8px 25px;
+    border-radius: 10px;
+    margin-left: -120px;
+    background-color: var(--dark-blue-color);
+    color: #FFF;
+    border: none;
+    font-size: 14px;
+}
+
+/* Media */
+@media (max-width:1100px) {
+    .btn {
+        padding: 12px 32px;
+    }
+
+    .wrapper {
+        padding: 0 100px;
+    }
+
+    nav {
+        width: 100%;
+        left: 0;
+        right: 0;
+        padding: 36px 100px;
+    }
+
+    nav.scrolled {
+        padding: 16px 100px;
+    }
+
+    header,
+    .hero-section,
+    header .wrapper {
+        max-height: 1000px;
+    }
+
+    .hero-section {
+        flex-direction: column;
+    }
+
+    .hero-section .left {
+        width: 100%;
+        margin-top: 40px;
+    }
+
+    .hero-section {
+        position: relative;
+
+    }
+
+    .hero-section .right {
+        position: absolute;
+        bottom: 0;
+    }
+
+    .students-enrolled {
+        display: none;
+    }
+
+    .overall-ratings {
+        display: none;
+    }
 }
